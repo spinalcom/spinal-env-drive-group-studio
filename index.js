@@ -1,3 +1,5 @@
+require("spinal-env-drive-core");
+
 /**
  * SpinalDrive_App_FileExplorer_group_studio
  * @extends {SpinalDrive_App}
@@ -50,7 +52,9 @@ class SpinalDrive_App_FileExplorer_group_studio extends SpinalDrive_App {
     }
     return false;
   }
-
 }
+
+
+spinalDrive_Env.add_applications('FileExplorer', new SpinalDrive_App_FileExplorer_group_studio());
 
 module.exports.FileExplorerGroupStudio = SpinalDrive_App_FileExplorer_group_studio;
