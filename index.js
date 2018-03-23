@@ -1,24 +1,24 @@
 require("spinal-env-drive-core");
 
 /**
- * SpinalDrive_App_FileExplorer_group_studio
+ * SpinalDrive_App_FileExplorer_inspector
  * @extends {SpinalDrive_App}
  */
-class SpinalDrive_App_FileExplorer_group_studio extends SpinalDrive_App {
+class SpinalDrive_App_FileExplorer_inspector extends SpinalDrive_App {
 
   /**
-   * Creates an instance of SpinalDrive_App_FileExplorer_group_studio.
-   * @memberof SpinalDrive_App_FileExplorer_group_studio
+   * Creates an instance of SpinalDrive_App_FileExplorer_inspector.
+   * @memberof SpinalDrive_App_FileExplorer_inspector
    */
   constructor() {
-    super("OpenGroupStudioFileExplorer", "Open with Group studio", 6, "sort", "Open the Group studio");
+    super("OpenGroupStudioFileExplorer", "Open with SpinalBIM Inspector", 6, "sort", "Open the SpinalBIM Inspector");
     this.order_priority = 5;
   }
   /**
    * method to handle the selection
    * 
    * @param {any} element 
-   * @memberof SpinalDrive_App_FileExplorer_group_studio
+   * @memberof SpinalDrive_App_FileExplorer_inspector
    */
   action(obj) {
 
@@ -31,7 +31,7 @@ class SpinalDrive_App_FileExplorer_group_studio extends SpinalDrive_App {
     }
     path += '/' + obj.file.name;
     let myWindow = window.open('', '');
-    let location = "/html/group-studio/?path=" + btoa(path);
+    let location = "/html/inspector/?path=" + btoa(path);
     myWindow.document.location = location;
     myWindow.focus();
   }
@@ -40,7 +40,7 @@ class SpinalDrive_App_FileExplorer_group_studio extends SpinalDrive_App {
    * method to know if the app is needed to be shown.
    * @param {Object} d node of the tree selectionned
    * @returns {boolean}
-   * @memberof SpinalDrive_App_FileExplorer_group_studio
+   * @memberof SpinalDrive_App_FileExplorer_inspector
    */
   is_shown(d) {
     if (d && d.file && d.file._server_id) {
@@ -55,6 +55,6 @@ class SpinalDrive_App_FileExplorer_group_studio extends SpinalDrive_App {
 }
 
 
-spinalDrive_Env.add_applications('FileExplorer', new SpinalDrive_App_FileExplorer_group_studio());
+spinalDrive_Env.add_applications('FileExplorer', new SpinalDrive_App_FileExplorer_inspector());
 
-module.exports.FileExplorerGroupStudio = SpinalDrive_App_FileExplorer_group_studio;
+module.exports.FileExplorerSpinalBIMInspector = SpinalDrive_App_FileExplorer_inspector;
